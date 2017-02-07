@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block body %}
+<html>
+
+<body>
+
+
+<h1>New Application</h1>
+
+
+
+<form action="{{url_for('addANewDish')}}" id="dishform" method ='post'>
+name=<br>
+<input type="text" name="name"><br>
+photo=<br>
+<input type="text" name="photo"><br>
+ingredients:<br>
+<textarea rows="4" cols="60" name="ingredients" form = 'dishform'></textarea>	
+instructions:<br>
+<textarea rows="4" cols="60" name="instructions" form = 'dishform'></textarea>
+<input type="submit" value="Submit New Dish">
+</form>	
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+{% block body %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    iFood
+  </title>
+
+ <link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two' rel='stylesheet' type='text/css'>
+  <!-- Latest compiled and minified CSS --> 
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
+  <!-- jQuery library --> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+  <!-- Latest compiled JavaScript --> 
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+
+
+
+
+
+
+
+<!-- Static navbar -->
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+             
+            </button>
+            <a class="navbar-brand" href="/">iFood</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="{{ url_for('showAllDishes')}}">Home</a></li>
+              <li><a href="{{ url_for('aboutus')}}">aboutus</a></li>
+            
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+<div class="container-fluid">
+
+
+
+<div class="row">
+{{item.picture}} 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+  <div class="col-md-4">
+  <div class="thumbnail transparent web_app_img">
+      <img src={{item.picture}} class="web_app_img">
+  <div class="mainpageborders" >
+        <h3>{{item.name}}</h3>
+        <h5>{{item.instructions}}</h5>  
+        <h2>{{item.ingredients}}</h2>
+        
+        <p><a href={{url_for('dishes', dish_id = item.id)}}> </a>
+        </p>  
+        </div>
+  </div>
+
+      
+      
+      
+  </div>
+
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block body %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    iFood
+  </title>  
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+ <link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two' rel='stylesheet' type='text/css'>
+  <!-- Latest compiled and minified CSS --> 
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
+  <!-- jQuery library --> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+  <!-- Latest compiled JavaScript --> 
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+
+<body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<form action="{{url_for('newCustomer')}}" id="dishform" method ='post'>
+<h1> Sign up </h1> 
+<p> 
+<label for="usernamesignup" class="uname" data-icon="u">Your username</label>
+<input id="usernamesignup" name="name" required="required" type="text" placeholder="your name" />
+</p>
+<p> 
+<label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
+<input id="emailsignup" name="email" required="required" type="email" placeholder="youremail@mail.com"/> 
+</p>
+<p> 
+<label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
+<input id="passwordsignup" name="password" required="required" type="password" placeholder="eg. X8df!90EO"/>
+</p>
+<p> 
+<label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
+<input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
+</p>
+<p> 
+<label for="usernamesignup" class="uname" data-icon="u">Your Country</label>
+<input id="usernamesignup" name="country" required="required" type="text" placeholder="your Country goes here" />
+</p>
+<p class="signin button"> 
+<input type="submit" value="Sign up"/> 
+</p>
+
+</form>
+
+    
+  
+</body> <!-- /form -->
+{% endblock %}

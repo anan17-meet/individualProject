@@ -1,0 +1,26 @@
+
+{% extends "layout.html" %}
+{% block body %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<section class="container">
+    <div class="login">
+      <h1>Login to Web App</h1>
+<form action="{{ url_for('login') }}" method = 'post'>
+  Email Address:<br>
+  <input type="text" name="email"><br>
+  Password:<br>
+  <input type="password" name="password">
+   <input type="submit" value="Login">
+</form>
+{% endblock %}
+
+
+
+
+
+

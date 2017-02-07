@@ -1,0 +1,33 @@
+<html>
+
+<body>
+<h2> all the dishes</h2>
+{% for item in allDishes %}
+
+
+<p>{{item.instructions}}</p>
+
+
+
+<ul>
+<li>
+
+
+<p>{{item.name}}</p>
+
+
+
+</li>
+<img src={{item.photo}} >
+
+
+
+
+</ul>
+{% endfor %}
+<a href={{url_for('addANewDish')}}> Add A New Dish </a>
+
+
+
+</html>
+
