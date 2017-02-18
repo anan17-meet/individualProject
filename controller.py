@@ -1,5 +1,6 @@
 from flask import Flask ,flash, render_template , request , redirect, url_for
 from databases import *
+from flask import session as login_session
 
 app = Flask(__name__)
 app.secret_key = "MY_SUPER_SECRET_KEY"
@@ -62,12 +63,14 @@ def login():
 		if verify_password(email, password):
 			customer = session.query(Customer).filter_by(email=email).one()
 			flash('Login Successful, welcome, %s' % customer.name)
-			
+			login_session['name'] = customer.name
+			login_session['email'] = customer.email
+			login_session['id'] = customer.id
 			return redirect(url_for('showAllDishes'))
 		else:
 			# incorrect username/password
 			flash('Incorrect username/password combination')
-			return redirect(url_for('login'))
+			return redirect(url_for('showAllDishes'))
 
 
 @app.route('/newuser', methods = ['GET','POST'])
@@ -86,6 +89,9 @@ def newCustomer():
         customer = Customer(name = name, email=email, country = country)
         customer.hash_password(password)
         session.add(customer)
+        login_session['id'] = customer.id
+        login_session['email'] = customer.email
+        login_session['name'] = customer.name
         session.commit()
             
         
@@ -101,6 +107,16 @@ def verify_password(email, password):
 	return True
 
 
+@app.route('/logout')
+def logout():
+	if 'id' not in login_session:
+		flash("You must be logged in order to log out")
+		return redirect(url_for('login'))
+	del login_session['name']
+	del login_session['email']
+	del login_session['id']
+	flash("Logged Out Successfully")
+	return redirect(url_for('showAllDishes'))
 
 
 

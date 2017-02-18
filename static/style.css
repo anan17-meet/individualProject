@@ -44,4 +44,20 @@ body, html {
  	margin-top: 0px;
 }	
 
-.flash{position:absolute;width:100%; top:30%; color :black;} 
+.flash{position:absolute;width:100%; top:30%; color :black;}
+
+
+.body {
+    background-color:yellow;width:100%;
+    
+}
+.coursel {
+	padding-top: 50%
+}
+
+
+.coursel-size {
+	width: 300px;
+	height:100px;
+}
+
